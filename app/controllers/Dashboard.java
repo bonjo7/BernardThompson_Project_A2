@@ -27,6 +27,16 @@ public class Dashboard extends Controller
     Logger.info("Adding Assessment" + weight + chest + thigh + arm + waist + hips);
     redirect("/dashboard");
   }
+
+  public static void deleteAssessment(Long id){
+    Member member = Accounts.getLoggedInMember();
+    Assessment assessment = Assessment.findById(id);
+    Logger.info ("Removing" + assessment.hips + assessment.waist + assessment.arm + assessment.thigh + assessment.chest + assessment.weight);
+    member.assessmentList.remove(assessment);
+    member.save();
+    assessment.delete();
+    render("dashboard.html", member);
+  }
 }
 
 

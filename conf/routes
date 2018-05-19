@@ -17,6 +17,7 @@ POST    /authenticate                           Accounts.authenticate
 GET     /logout                                 Accounts.logout
 
 POST    /dashboard/addassessment                Dashboard.addAssessment
+GET     /dashboard/deleteassessment/{id}        Dashboard.deleteAssessment
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
