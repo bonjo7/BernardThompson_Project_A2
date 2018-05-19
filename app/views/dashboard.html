@@ -3,6 +3,113 @@
 
 #{menu id:"dashboard"/}
 
-<section class="ui segment">
-  #{mainpanel/}
+
+
+<section class="ui center aligned middle aligned segment">
+
+    <div class="ui two column middle aligned grid basic segment">
+        <div class="column">
+            <h2 class="ui header">
+                <p><i class="large user icon"></i></p>
+                ${member.name}
+            </h2>
+        </div>
+        <div class="column">
+            <h1 class="ui header">
+                <i class="huge heartbeat icon"></i>bob
+            </h1>
+            <h2 class="ui header">
+            <p>BMI</p>
+            </h2>
+
+        </div>
+    </div>
+</section>
+
+<form class="ui raised segment form" action="/dashboard/addassessment" method="POST">
+
+    <div class="field">
+        <div class="ui grid">
+            <div class="five wide column">
+                <h4>
+        <label>Weight</label>
+                </h4>
+        <input placeholder="00.00kg" type="text" name="weight">
+            </div>
+            <div class="five wide column">
+                <h4>
+        <label>Chest</label>
+                </h4>
+        <input placeholder="00.00cm" type="text" name="chest">
+            </div>
+            <div class="five wide column">
+                <h4>
+        <label>Thigh</label>
+                </h4>
+        <input placeholder="00.00cm" type="text" name="thigh">
+            </div>
+            <div class="five wide column">
+                <h4>
+        <label>Upper Arms</label>
+                </h4>
+        <input placeholder="00.00cm" type="text" name="arms">
+            </div>
+            <div class="five wide column">
+                <h4>
+        <label>Waist</label>
+                </h4>
+        <input placeholder="00.00cm" type="text" name="waist">
+            </div>
+            <div class="five wide column">
+                <h4>
+        <label>Hips</label>
+                </h4>
+        <input placeholder="00.00cm" type="text" name="hips">
+            </div>
+        </div>
+
+    </div>
+
+    <button class="ui blue submit button">Add Assessment</button>
+</form>
+
+<section class="ui raised segment">
+
+    <table class="ui fixed table">
+        <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Chest</th>
+            <th>Thigh</th>
+            <th>Upper Arm</th>
+            <th>Waist</th>
+            <th>Hips</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items: assessmentList, as:'assessment'}
+        <tr>
+            <td>
+            ${assessment.weight}
+            </td>
+            <td>
+            ${assessment.chest}
+            </td>
+            <td>
+            ${assessment.thigh}
+            </td>
+            <td>
+            ${assessment.arm}
+            </td>
+            <td>
+            ${assessment.waist}
+            </td>
+            <td>
+            ${assessment.hips}
+            </td>
+        </tr>
+        #{/list}
+        </tbody>
+    </table>
+
 </section>
