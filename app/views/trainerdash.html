@@ -1,16 +1,18 @@
 #{extends 'main.html' /}
 #{set title:'Play Gym Trainer' /}
 
-#{menu id:"trainerdash"/}
+#{trainermenu id:"trainerdash"/}
 
 #{list items:members, as:'member'}
 <section class="ui segment">
+
     <h2 class="ui header">
     ${member.name}
     </h2>
+    <h4><a href = "">Assessments</a> </h4>
     <a href="/trainerdash/deletemember/${member.id}" class="ui icon button">
         <i class="icon trash"></i>
     </a>
+
 </section>
 #{/list}
-

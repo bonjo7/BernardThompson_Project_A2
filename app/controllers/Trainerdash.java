@@ -18,10 +18,14 @@ public class Trainerdash extends Controller {
 
     public static void deleteMember (Long id){
 
-        Logger.info("Deleting a Member");
+        Trainer trainer = Accounts.getLoggedInTrainer();
         Member member = Member.findById(id);
+        List<Member> members = trainer.members;
+        Logger.info("Deleting Member : " + member.name);
+        trainer.members.remove(member);
+        trainer.save();
         member.delete();
-        redirect("/trainerdash");
-
+        render("trainerdash.html", members);
     }
+
 }
