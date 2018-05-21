@@ -38,3 +38,11 @@ Member(m2):
   password: secret
   assessmentList:
   - a3
+
+Trainer(t1):
+  name: Trainer Train
+  email: trainer@trainer.com
+  password: secret
+  members:
+  - m1
+  - m2

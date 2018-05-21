@@ -7,6 +7,7 @@ GET     /                                       Start.index
 GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
 GET     /admin                                  Admin.index
+GET     /trainerdash                            Trainerdash.index
 
 GET     /signup                                 Accounts.signup
 GET     /login                                  Accounts.login
@@ -18,6 +19,8 @@ GET     /logout                                 Accounts.logout
 
 POST    /dashboard/addassessment                Dashboard.addAssessment
 GET     /dashboard/deleteassessment/{id}        Dashboard.deleteAssessment
+
+GET     /trainerdash/deletemember/{id}          Trainerdash.deleteMember
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
