@@ -18,7 +18,7 @@ public class Dashboard extends Controller
     render ("dashboard.html", member, assessmentList);
   }
 
-  public static void addAssessment(float weight, float chest, float thigh, float arm, float waist, float hips)
+  public static void addAssessment(double weight, double chest, double thigh, double arm, double waist, double hips)
   {
     Member member = Accounts.getLoggedInMember();
     Assessment assessment = new Assessment(weight, chest, thigh, arm, waist, hips);
@@ -31,11 +31,12 @@ public class Dashboard extends Controller
   public static void deleteAssessment(Long id){
     Member member = Accounts.getLoggedInMember();
     Assessment assessment = Assessment.findById(id);
+    List<Assessment> assessmentList = member.assessmentList;
     Logger.info ("Removing" + assessment.hips + assessment.waist + assessment.arm + assessment.thigh + assessment.chest + assessment.weight);
     member.assessmentList.remove(assessment);
     member.save();
     assessment.delete();
-    render("dashboard.html", member);
+    render("dashboard.html", member, assessmentList);
   }
 }
 

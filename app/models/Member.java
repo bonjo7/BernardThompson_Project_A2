@@ -16,14 +16,14 @@ public class Member extends Model {
     public String password;
     public String address;
     public String gender;
-    public String height;
-    public String startingWeight;
+    public double height;
+    public double startingWeight;
 
 
     @OneToMany(cascade = CascadeType.ALL)
     public List<Assessment> assessmentList = new ArrayList<Assessment>();
 
-    public Member(String name, String email, String password, String address, String gender, String height, String startingWeight){
+    public Member(String name, String email, String password, String address, String gender, double height, double startingWeight){
 
         this.name = name;
         this.email = email;

@@ -15,7 +15,7 @@ public class Accounts extends Controller {
         render("login.html");
     }
 
-    public static void register(String name, String email, String password, String address, String gender, String height, String startingWeight)
+    public static void register(String name, String email, String password, String address, String gender, double height, double startingWeight)
     {
         Logger.info("Registering new user " + email);
         Member member = new Member(name, email, password, address, gender, height, startingWeight);
