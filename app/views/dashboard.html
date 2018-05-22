@@ -7,12 +7,22 @@
 
 <section class="ui center aligned middle aligned segment">
 
-    <div class="ui two column middle aligned grid basic segment">
+    <div class="ui four column middle aligned grid basic segment">
         <div class="column">
             <h2 class="ui header">
                 <p><i class="large user icon"></i></p>
                 ${member.name}
             </h2>
+        </div>
+
+        <div class="column">
+            <h1 class="ui header">
+                <i class=""></i>
+            </h1>
+            <h2 class="ui header">
+                <p>Ideal Weight Indicator</p>
+            </h2>
+
         </div>
         <div class="column">
             <h1 class="ui header">
@@ -20,6 +30,16 @@
             </h1>
             <h2 class="ui header">
             <p>BMI</p>
+            </h2>
+
+        </div>
+
+        <div class="column">
+            <h1 class="ui header">
+                <i class="user md icon"></i>
+            </h1>
+            <h2 class="ui header">
+                <p>Normal Weight</p>
             </h2>
 
         </div>
@@ -78,6 +98,7 @@
     <table class="ui fixed table">
         <thead>
         <tr>
+            <th>Date & Time</th>
             <th>Weight</th>
             <th>Chest</th>
             <th>Thigh</th>
@@ -91,6 +112,9 @@
         <tbody>
         #{list items: assessmentList, as:'assessment'}
         <tr>
+            <td>
+            ${assessment.timePoint}
+            </td>
             <td>
             ${assessment.weight}
             </td>
@@ -113,7 +137,8 @@
                 comment
             </td>
             <td>
-                <a href="/dashboard/deleteassessment/${assessment.id}" class="ui tiny red button">Delete Assessment</a>
+                <a href="/dashboard/deleteassessment/${assessment.id}" class="ui icon button">
+                    <i class="red icon trash"></i></a>
             </td>
         </tr>
         #{/list}

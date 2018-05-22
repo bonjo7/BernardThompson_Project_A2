@@ -17,14 +17,21 @@ public class Dashboard extends Controller
     render ("dashboard.html", member, assessmentList);
   }
 
-  public static void addAssessment(double weight, double chest, double thigh, double arm, double waist, double hips)
+  public static void addAssessment(double weight, double chest, double thigh, double arm, double waist, double hips, String comment)
   {
     Member member = Accounts.getLoggedInMember();
-    Assessment assessment = new Assessment(weight, chest, thigh, arm, waist, hips);
+    Assessment assessment = new Assessment(weight, chest, thigh, arm, waist, hips, comment);
     member.assessmentList.add(assessment);
     assessment.save();
     Logger.info("Adding Assessment" + weight + chest + thigh + arm + waist + hips);
     redirect("/dashboard");
+  }
+
+  public static void addComment(Long id, String comment){
+    Assessment assessment = Assessment.findById(id);
+    assessment.setComment(comment);
+    assessment._save();
+    render("assessment.html");
   }
 
   public static void deleteAssessment(Long id){

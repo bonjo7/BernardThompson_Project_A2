@@ -9,8 +9,10 @@ GET     /about                                  About.index
 GET     /admin                                  Admin.index
 GET     /trainerdash                            Trainerdash.index
 
+
 GET     /signup                                 Accounts.signup
 GET     /login                                  Accounts.login
+GET     /settings                               Accounts.settings
 
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
@@ -18,6 +20,7 @@ POST    /authenticate                           Accounts.authenticate
 GET     /logout                                 Accounts.logout
 
 POST    /dashboard/addassessment                Dashboard.addAssessment
+POST    /dashboard/addcomment                   Dashboard.addComment
 GET     /members/{id}                           AssessmentCtrl.index
 GET     /dashboard/deleteassessment/{id}        Dashboard.deleteAssessment
 

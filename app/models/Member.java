@@ -26,20 +26,54 @@ public class Member extends Model {
 
     public Member(String name, String email, String password, String address, String gender, double height, double startingWeight){
 
+        setName(name);
+        setEmail(email);
+        setPassword(password);
+        setAddress(address);
+        setGender(gender);
+        setHeight(height);
+        setStartingWeight(startingWeight);
+    }
+
+    /**
+     * Mutator methods to set the member fields
+     *
+     */
+    public void setName(String name){
         this.name = name;
+    }
+
+    public void setEmail(String email){
         this.email = email;
+    }
+
+    public void setPassword(String password){
         this.password = password;
+    }
+
+    public void setAddress(String address){
         this.address = address;
+    }
+
+    public void setGender(String gender){
         this.gender = gender;
+    }
+
+    public void setHeight(double height){
         this.height = height;
+    }
+
+    public void setStartingWeight(double startingWeight){
         this.startingWeight = startingWeight;
     }
 
     public double getStartWeight() {
+
         return startingWeight;
     }
 
     public double getHeight(){
+
         return height;
     }
 
@@ -58,7 +92,7 @@ public class Member extends Model {
 
     public static double calculateBMI(){
 
-        double bmi = 0.0;
+        double bmi;
         Member member = Accounts.getLoggedInMember();
         bmi = member.getStartWeight() * (703 / (member.getHeight() * member.getHeight()));
 

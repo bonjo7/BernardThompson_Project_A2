@@ -8,14 +8,21 @@ import play.mvc.Controller;
 public class Accounts extends Controller {
 
     public static void signup(){
+
         render("signup.html");
     }
 
     public static void login(){
+
         render("login.html");
     }
 
-    public static void register(String name, String email, String password, String address, String gender, double height, double startingWeight)
+    public static void settings(){
+        render("settings.html");
+    }
+
+    public static void register(String name, String email, String password, String address, String gender,
+                                double height, double startingWeight)
     {
         Logger.info("Registering new user " + email);
         Member member = new Member(name, email, password, address, gender, height, startingWeight);
@@ -72,5 +79,20 @@ public class Accounts extends Controller {
             login();
         }
         return trainer;
+    }
+
+    public static void updateMember(String name, String email, String password, String address, String gender,
+                                    double height, double startingWeight){
+
+        Member member = getLoggedInMember();
+        member.setName(name);
+        member.setEmail(email);
+        member.setPassword(password);
+        member.setAddress(address);
+        member.setGender(gender);
+        member.setHeight(height);
+        member.setStartingWeight(startingWeight);
+        member.save();
+        redirect("dashboard.html");
     }
 }
