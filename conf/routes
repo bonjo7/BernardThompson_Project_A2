@@ -13,7 +13,7 @@ GET     /trainerdash                            Trainerdash.index
 GET     /signup                                 Accounts.signup
 GET     /login                                  Accounts.login
 GET     /settings                               Accounts.settings
-
+POST    /settings/updatemember                  Accounts.updateMember
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
 

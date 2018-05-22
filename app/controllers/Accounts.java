@@ -93,6 +93,6 @@ public class Accounts extends Controller {
         member.setHeight(height);
         member.setStartingWeight(startingWeight);
         member.save();
-        redirect("dashboard.html");
+        redirect("/dashboard");
     }
 }
