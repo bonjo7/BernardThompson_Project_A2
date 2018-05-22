@@ -1,5 +1,6 @@
 package models;
 
+import controllers.Accounts;
 import play.db.jpa.Model;
 
 import javax.persistence.CascadeType;
@@ -34,6 +35,14 @@ public class Member extends Model {
         this.startingWeight = startingWeight;
     }
 
+    public double getStartWeight() {
+        return startingWeight;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
     public static Member findByEmail(String email)
     {
 
@@ -46,11 +55,15 @@ public class Member extends Model {
         return this.password.equals(password);
     }
 
-    /*
+
     public static double calculateBMI(){
 
-        bmi = startingWeight * (703 / (height * height));
+        double bmi = 0.0;
+        Member member = Accounts.getLoggedInMember();
+        bmi = member.getStartWeight() * (703 / (member.getHeight() * member.getHeight()));
+
+        return bmi;
 
     }
-    */
+
 }

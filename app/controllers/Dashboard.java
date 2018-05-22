@@ -14,7 +14,6 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Assessment> assessmentList = member.assessmentList;
-    //List<Member> members = Member.findAll();
     render ("dashboard.html", member, assessmentList);
   }
 

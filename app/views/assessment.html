@@ -1,0 +1,70 @@
+#{extends 'main.html' /}
+#{set title:'Member Assessments' /}
+
+#{trainermenu id:"trainerdash"/}
+
+<section class="ui segment">
+
+    <h2 class="ui header">
+    ${member.name}
+    </h2>
+</section>
+
+    <section class="ui raised segment">
+    <table class="ui fixed table">
+        <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Chest</th>
+            <th>Thigh</th>
+            <th>Upper Arm</th>
+            <th>Waist</th>
+            <th>Hips</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+    #{list items: member.assessmentList, as:'assessment'}
+    <tr>
+        <td>
+        ${assessment.weight}
+        </td>
+        <td>
+        ${assessment.chest}
+        </td>
+        <td>
+        ${assessment.thigh}
+        </td>
+        <td>
+        ${assessment.arm}
+        </td>
+        <td>
+        ${assessment.waist}
+        </td>
+        <td>
+        ${assessment.hips}
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+    #{/list}
+    </tbody>
+    </table>
+</section>
+
+
+<form class="ui raised segment form" action="#" method="POST">
+
+<div class="field">
+    <h4>
+        <label>Comments</label>
+    </h4>
+    <input placeholder="comment" type="text" name="comment">
+
+</div>
+
+<button class="ui blue submit button">Update</button>
+</form>
+

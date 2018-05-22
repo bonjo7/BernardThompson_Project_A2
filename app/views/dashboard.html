@@ -16,7 +16,7 @@
         </div>
         <div class="column">
             <h1 class="ui header">
-                <i class="huge heartbeat icon"></i>bob
+                <i class="huge heartbeat icon">1.7</i>
             </h1>
             <h2 class="ui header">
             <p>BMI</p>
@@ -84,6 +84,8 @@
             <th>Upper Arm</th>
             <th>Waist</th>
             <th>Hips</th>
+            <th>Comment</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -106,6 +108,9 @@
             </td>
             <td>
             ${assessment.hips}
+            </td>
+            <td>
+                comment
             </td>
             <td>
                 <a href="/dashboard/deleteassessment/${assessment.id}" class="ui tiny red button">Delete Assessment</a>

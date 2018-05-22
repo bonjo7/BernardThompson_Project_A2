@@ -18,6 +18,7 @@ POST    /authenticate                           Accounts.authenticate
 GET     /logout                                 Accounts.logout
 
 POST    /dashboard/addassessment                Dashboard.addAssessment
+GET     /members/{id}                           AssessmentCtrl.index
 GET     /dashboard/deleteassessment/{id}        Dashboard.deleteAssessment
 
 GET     /trainerdash/deletemember/{id}          Trainerdash.deleteMember
