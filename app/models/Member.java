@@ -19,10 +19,13 @@ public class Member extends Model {
     public String gender;
     public double height;
     public double startingWeight;
+    public double latestBmi = 0.0;
+
 
 
     @OneToMany(cascade = CascadeType.ALL)
     public List<Assessment> assessmentList = new ArrayList<Assessment>();
+
 
     public Member(String name, String email, String password, String address, String gender, double height, double startingWeight){
 
@@ -33,6 +36,9 @@ public class Member extends Model {
         setGender(gender);
         setHeight(height);
         setStartingWeight(startingWeight);
+        calculateBmi();
+        determineBMICategory();
+
     }
 
     /**
@@ -89,15 +95,40 @@ public class Member extends Model {
         return this.password.equals(password);
     }
 
+    public double calculateBmi(){
 
-    public static double calculateBMI(){
+       if(assessmentList.size() == 0){
+           latestBmi = (startingWeight / (height * height));
+       }else{
+           Assessment assessment = assessmentList.get(assessmentList.size() -1);
+           latestBmi = (assessment.weight / (height * height));
+       }
 
-        double bmi;
-        Member member = Accounts.getLoggedInMember();
-        bmi = member.getStartWeight() * (703 / (member.getHeight() * member.getHeight()));
+       return latestBmi;
+    }
 
-        return bmi;
+    public String determineBMICategory(){
 
+        if(latestBmi < 16 ){
+            return "SEVERELY UNDERWEIGHT";
+        }
+        else if(latestBmi >= 16 && latestBmi < 18.5){
+            return "UNDERWEIGHT";
+        }
+        else if(latestBmi >= 18.5 && latestBmi < 25) {
+            return "NORMAL";
+        }
+        else if(latestBmi >= 25 && latestBmi < 30) {
+            return "OVERWEIGHT";
+        }
+        else if(latestBmi >= 30 && latestBmi < 35) {
+            return "MODERATELY OBESE";
+        }
+        else if(latestBmi >= 35) {
+            return "SEVERELY OBESE";
+        }
+
+        return "No value for BMI";
     }
 
 }

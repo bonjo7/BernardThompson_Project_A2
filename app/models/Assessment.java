@@ -35,4 +35,9 @@ public class Assessment extends Model {
         this.comment = comment;
     }
 
+    public double getWeight(){
+        return weight;
+    }
+
+
 }

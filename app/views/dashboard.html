@@ -26,7 +26,7 @@
         </div>
         <div class="column">
             <h1 class="ui header">
-                <i class="huge heartbeat icon">1.7</i>
+                <i class="huge heartbeat icon">${member.calculateBmi()}</i>
             </h1>
             <h2 class="ui header">
             <p>BMI</p>
@@ -39,7 +39,7 @@
                 <i class="user md icon"></i>
             </h1>
             <h2 class="ui header">
-                <p>Normal Weight</p>
+                <p>${member.determineBMICategory()}</p>
             </h2>
 
         </div>

@@ -47,24 +47,29 @@
         <td>
 
         </td>
+
     </tr>
 
     #{/list}
+
     </tbody>
+
     </table>
+
+        <form class="ui raised segment form" action="/dashboard/addcomment" method="POST">
+
+            <div class="field">
+                <h4>
+                    <label>Comments</label>
+                </h4>
+                <input placeholder="comment" type="text" name="comment">
+
+            </div>
+
+            <button class="ui blue submit button">Update</button>
+        </form>
 </section>
 
 
-<form class="ui raised segment form" action="/dashboard/addcomment" method="POST">
 
-<div class="field">
-    <h4>
-        <label>Comments</label>
-    </h4>
-    <input placeholder="comment" type="text" name="comment">
-
-</div>
-
-<button class="ui blue submit button">Update</button>
-</form>
 
